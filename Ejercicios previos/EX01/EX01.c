@@ -101,39 +101,43 @@ typedef struct t_mega_big_box
 
 
 //Ej.1
-void	ej_1_a(t_box *a)
+void	ej_1_a(int x, char c)
 {
-	a->nb = 7;
-	a->c = 'p';
+	t_box	a;
+
+	a.nb = x;
+	a.c = c;
 }
 
-t_box	ej_1_b(void)
+t_box	ej_1_b(int x, char c)
 {
 	t_box	b;
 
-	b.nb = 42;
-	b.c = 'M';
+	b.nb = x;
+	b.c = c;
 	return (b);
 }
 
 //Ej.2
-void	ej_2_a(t_big_box *d)
+void	ej_2_a(int xx, char cc, char *str)
 {
-	d->str = ft_strdup("Hola");
-	d->nb = 8;
-	d->c = 'D';
-	d->alias_box_a.c = 'E';
-	d->alias_box_a.nb = 9;
+	t_big_box	d;
+
+	d.str = str;
+	d.nb = xx;
+	d.c = cc;
+	d.alias_box_a = ej_1_b(xx, cc);
 }
 
-t_box	ej_2_b(t_big_box *e)
+t_box	ej_2_b(int xx, char cc, char *str)
 {
-	e->str = ft_strdup("Hola");
-	e->nb = 8;
-	e->c = 'D';
-	e->alias_box_a.c = 'E';
-	e->alias_box_a.nb = 9;
-	return (e->alias_box_a);
+	t_big_box	e;
+
+	e.str = str;
+	e.nb = xx;
+	e.c = cc;
+	e.alias_box_a = ej_1_b(xx, cc);
+	return (e);
 }
 
 //Ej.3
@@ -148,28 +152,24 @@ void	free_tbox(t_big_box *t)
 }
 
 //Ej.4
-void	ej_4_a(t_mega_big_box *f)
+void	ej_4_a(int xxx, int xxxx, char ccc, char cccc, char *str)
 {
-	f->alias_box_b.nb = 2;
-	f->alias_box_b.c = 'R';
-	f->alias_big_box.c = 'A';
-	f->alias_big_box.nb = 1;
-	f->alias_big_box.str = ft_strdup("Hola hola");
-	f->alias_big_box.alias_box_a.c = 'C';
-	f->alias_big_box.alias_box_a.nb = 9;
-}
+	t_mega_big_box	p;
 
-t_box	ej_4_b(t_mega_big_box *g)
-{
-	g->alias_box_b.nb = 5;
-	g->alias_box_b.c = 'U';
-	g->alias_big_box.c = 'D';
-	g->alias_big_box.nb = 6;
-	g->alias_big_box.str = ft_strdup("Que tal");
-	g->alias_big_box.alias_box_a.c = 'V';
-	g->alias_big_box.alias_box_a.nb = 0;
-	return (g->alias_box_b);
+	p.alias_box_b = ej_1_b(xxx, ccc);
+	p.alias_big_box.alias_box_a = ej_2_b(xxxx, cccc, str);
 }
+//_____________________________________
+//No se que devolver
+t_box	ej_4_b(int xxx, int xxxx, char ccc, char cccc, char *str)
+{
+	t_mega_big_box	o;
+
+	o.alias_box_b = ej_1_b(xxx, ccc);
+	o.alias_big_box.alias_box_a = ej_2_b(xxxx, cccc, str);
+	return (o.alias_box_b);
+}
+//______________________________________
 
 //Ej.5
 void	free_mega_big_box(t_mega_big_box *h)
