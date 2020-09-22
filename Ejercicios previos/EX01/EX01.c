@@ -126,16 +126,14 @@ void	ej_2_a(t_big_box *d)
 	d->alias_box_a.nb = 9;
 }
 
-t_box	ej_2_b(void)
+t_box	ej_2_b(t_big_box *e)
 {
-	t_big_box e;
-
-	e.str = ft_strdup("Hola");
-	e.nb = 8;
-	e.c = 'D';
-	e.alias_box_a.c = 'E';
-	e.alias_box_a.nb = 9;
-	return ();
+	e->str = ft_strdup("Hola");
+	e->nb = 8;
+	e->c = 'D';
+	e->alias_box_a.c = 'E';
+	e->alias_box_a.nb = 9;
+	return (e->alias_box_a);
 }
 
 //Ej.3
@@ -169,7 +167,7 @@ t_box	ej_4_b(t_mega_big_box *g)
 	g->alias_big_box.str = ft_strdup("Que tal");
 	g->alias_big_box.alias_box_a.c = 'V';
 	g->alias_big_box.alias_box_a.nb = 0;
-	return ();
+	return (g->alias_box_b);
 }
 
 //Ej.5
