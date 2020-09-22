@@ -137,18 +137,13 @@ t_box	ej_2_b(int xx, char cc, char *str)
 	e.nb = xx;
 	e.c = cc;
 	e.alias_box_a = ej_1_b(xx, cc);
-	return (e);
+	return (e.alias_box_a);
 }
 
 //Ej.3
 void	free_tbox(t_big_box *t)
 {
-	free((*t).nb);
-	free((*t).c);
-	free((*t).c);
-	free((*t).str);
-	free((*t).alias_box_a.nb);
-	free((*t).alias_box_a.c);
+	free(t);
 }
 
 //Ej.4
@@ -174,13 +169,7 @@ t_box	ej_4_b(int xxx, int xxxx, char ccc, char cccc, char *str)
 //Ej.5
 void	free_mega_big_box(t_mega_big_box *h)
 {
-	free(h->alias_box_b.nb);
-	free(h->alias_box_b.c);
-	free(h->alias_big_box.c);
-	free(h->alias_big_box.nb);
-	free(h->alias_big_box.str);
-	free(h->alias_big_box.alias_box_a.c);
-	free(h->alias_big_box.alias_box_a.nb);
+	free(h);
 }
 
 //Ej.6
@@ -189,7 +178,7 @@ char	print_lower_char(t_mega_big_box *r)
 	if (r->alias_big_box.alias_box_a.c > r->alias_big_box.c)
 		return (r->alias_box_b.c);
 	else if (r->alias_big_box.alias_box_a.c == r->alias_big_box.c)
-		return (NULL);
+		return (0);
 	else
 		return (r->alias_big_box.alias_box_a.c);
 }
@@ -199,6 +188,6 @@ int		main(void)
 {
 	t_mega_big_box *z;
 
-	ej_4_a(z);
-	printf("%hhd", print_lower_char(z));
+	ej_4_b(42, 21, 'A', 'A', "Hola");
+	printf("%c", print_lower_char(z));
 }
