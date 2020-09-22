@@ -128,7 +128,8 @@ void	ej_2_a(int xx, char cc, char *str)
 	d.c = cc;
 	d.alias_box_a = ej_1_b(xx, cc);
 }
-
+//_____________________________________________________________________
+//No se que devolver
 t_box	ej_2_b(int xx, char cc, char *str)
 {
 	t_big_box	e;
@@ -139,6 +140,7 @@ t_box	ej_2_b(int xx, char cc, char *str)
 	e.alias_box_a = ej_1_b(xx, cc);
 	return (e.alias_box_a);
 }
+//_____________________________________________________________________
 
 //Ej.3
 void	free_tbox(t_big_box *t)
@@ -154,7 +156,7 @@ void	ej_4_a(int xxx, int xxxx, char ccc, char cccc, char *str)
 	p.alias_box_b = ej_1_b(xxx, ccc);
 	p.alias_big_box.alias_box_a = ej_2_b(xxxx, cccc, str);
 }
-//_____________________________________
+//_____________________________________________________________________
 //No se que devolver
 t_box	ej_4_b(int xxx, int xxxx, char ccc, char cccc, char *str)
 {
@@ -162,9 +164,9 @@ t_box	ej_4_b(int xxx, int xxxx, char ccc, char cccc, char *str)
 
 	o.alias_box_b = ej_1_b(xxx, ccc);
 	o.alias_big_box.alias_box_a = ej_2_b(xxxx, cccc, str);
-	return (o.alias_box_b);
+	return (o¿?);
 }
-//______________________________________
+//_____________________________________________________________________
 
 //Ej.5
 void	free_mega_big_box(t_mega_big_box *h)
@@ -178,7 +180,7 @@ char	print_lower_char(t_mega_big_box *r)
 	if (r->alias_big_box.alias_box_a.c > r->alias_big_box.c)
 		return (r->alias_box_b.c);
 	else if (r->alias_big_box.alias_box_a.c == r->alias_big_box.c)
-		return (0);
+		return ('=');
 	else
 		return (r->alias_big_box.alias_box_a.c);
 }
@@ -186,8 +188,8 @@ char	print_lower_char(t_mega_big_box *r)
 
 int		main(void)
 {
-	t_mega_big_box *z;
+	t_mega_big_box z;
 
-	ej_4_b(42, 21, 'A', 'A', "Hola");
-	printf("%c", print_lower_char(z));
+	z = ej_4_b(42, 21, 'P', 'F', "Hola");
+	printf("%c", print_lower_char(&z));
 }
