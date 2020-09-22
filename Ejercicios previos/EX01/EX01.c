@@ -129,7 +129,7 @@ void	ej_2_a(int xx, char cc, char *str)
 	d.alias_box_a = ej_1_b(xx, cc);
 }
 //_____________________________________________________________________
-//No se que devolver
+//No se que devolver.
 t_box	ej_2_b(int xx, char cc, char *str)
 {
 	t_big_box	e;
@@ -157,7 +157,7 @@ void	ej_4_a(int xxx, int xxxx, char ccc, char cccc, char *str)
 	p.alias_big_box.alias_box_a = ej_2_b(xxxx, cccc, str);
 }
 //_____________________________________________________________________
-//No se que devolver
+//No se que devolver.
 t_box	ej_4_b(int xxx, int xxxx, char ccc, char cccc, char *str)
 {
 	t_mega_big_box	o;
