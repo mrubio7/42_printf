@@ -139,11 +139,12 @@ t_box	ej_2_b(t_big_box *e)
 //Ej.3
 void	free_tbox(t_big_box *t)
 {
-	free(t->nb);
-	free(t->c);
-	free(t->str);
-	free(t->alias_box_a.nb);
-	free(t->alias_box_a.c);
+	free((*t).nb);
+	free((*t).c);
+	free((*t).c);
+	free((*t).str);
+	free((*t).alias_box_a.nb);
+	free((*t).alias_box_a.c);
 }
 
 //Ej.4
@@ -183,7 +184,7 @@ void	free_mega_big_box(t_mega_big_box *h)
 }
 
 //Ej.6
-void	print_lower_char(t_mega_big_box *r)
+char	print_lower_char(t_mega_big_box *r)
 {
 	if (r->alias_big_box.alias_box_a.c > r->alias_big_box.c)
 		return (r->alias_box_b.c);
@@ -194,10 +195,10 @@ void	print_lower_char(t_mega_big_box *r)
 }
 
 
-int		main()
+int		main(void)
 {
 	t_mega_big_box *z;
 
 	ej_4_a(z);
-	print_lower_char(z);
+	printf("%hhd", print_lower_char(z));
 }
