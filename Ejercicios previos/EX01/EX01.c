@@ -1,5 +1,25 @@
 /*Pon aquí los includes que necesites*/
 
+#include <unistd.h>
+#include <stdio.h>
+
+char	*ft_strdup(const char *src)
+{
+	char	*s;
+	int		x;
+
+	x = ft_strlen(src) + 1;
+	if ((s = malloc(x)) == NULL)
+		return (NULL);
+	if (src == NULL)
+	{
+		free(s);
+		return (NULL);
+	}
+	ft_memcpy(s, src, x);
+	return (s);
+}
+
 /*Funciones permitidas:
 	- ft_strdup
 	- write
@@ -19,106 +39,131 @@
 		-una variable del tipo 't_big_box': big_box
 
 /*Funciones a desarrollar
-
+{ } 2 funciones que inicialicen una variable del tipo 't_box' (una función ha de ser tipo void y otra tipo 't_box')
+{ } 2 funciones que inicialicen una variable del tipo 't_big_box' (una función ha de ser tipo void y otra tipo 't_box')
+{ } Función que limpie la posible memoria reservada de una 't_big_box'
+{ } 2 funciones que inicialicen una variable del tipo 't_mega_big_box' (una función ha de ser tipo 'void' y otra tipo 't_box')
+{ } Función que limpie la posible memoria reservada de una 't_mega_big_box'
+{ } Función que dada una 't_mega_big_box' imprima el carácter con menor valor ASCII de las dos 't_box' que contiene
 */
 
-int main()
+typedef struct t_box
 {
-	typedef struct t_box
-	{
-		int		nb;
-		char	c;
-	}t_box;
+	int		nb;
+	char	c;
+}t_box;
 
-	typedef struct t_big_box
-	{
-		char	*str;
-		int		nb;
-		char	c;
-		t_box	boxA;
-	}t_big_box;
+typedef struct t_big_box
+{
+	char	*str;
+	int		nb;
+	char	c;
+	t_box	alias_box_a;
+}t_big_box;
 
-	typedef struct t_mega_big_box
-	{
-		t_box		boxB;
-		t_big_box	big_boxA;
-	}t_mega_big_box;
+typedef struct t_mega_big_box
+{
+	t_box		alias_box_b;
+	t_big_box	alias_big_box;
+}t_mega_big_box;
 
-////////////////////////////////////// Ej. 1
-//{ } 2 funciones que inicialicen una variable del tipo 't_box' (una función ha de ser tipo void y otra tipo 't_box')
 
-	void	ft_init_t_box_a(void)
-	{
-		t_box	a;
-	}
+//Ej.1
+void	ej_1_a(void)
+{
+	t_box	a;
 
-	t_box	ft_init_t_box_b(void)
-	{
-		t_box	a;
-	}
+	a.nb = 7;
+	a.c = 'p';
+}
 
-////////////////////////////////////// Ej. 2
-//{ } 2 funciones que inicialicen una variable del tipo 't_big_box' (una función ha de ser tipo void y otra tipo 't_box')
+t_box	ej_1_b(void)
+{
+	t_box	b;
 
-	void	ft_init_t_big_box_a(void)
-	{
-		t_big_box	a;
-	}
+	b.nb = 42;
+	b.c = 'M';
+}
 
-	t_box	ft_init_t_big_box_b(void)
-	{
-		t_big_box	a;
-	}
+//Ej.2
+void	ej_2_a(void)
+{
+	t_big_box d;
 
-////////////////////////////////////// Ej. 3
-//{ } Función que limpie la posible memoria reservada de una 't_big_box'
+	d.str = ft_strdup("Hola");
+	d.nb = 8;
+	d.c = 'D';
+	d.alias_box_a.c = 'E';
+	d.alias_box_a.nb = 9;
+}
 
-	void	ft_free_t_big_box(t_big_box *r)
-	{
-		free((*r)->str);
-		free((*r)->nb);
-		free((*r)->c);
-		free((*r)->boxA->nb);
-		free((*r)->boxA->c);
-	}
+t_box	ej_2_b(void)
+{
+	t_big_box e;
 
-////////////////////////////////////// Ej. 4
-//{ } 2 funciones que inicialicen una variable del tipo 't_mega_big_box' (una función ha de ser tipo 'void' y otra tipo 't_box')
+	e.str = ft_strdup("Hola");
+	e.nb = 8;
+	e.c = 'D';
+	e.alias_box_a.c = 'E';
+	e.alias_box_a.nb = 9;
+}
 
-	void	ft_init_t_mega_big_box_a(void)
-	{
-		t_mega_big_box a;
-	}
+//Ej.3
+void	free_tbox(t_big_box *f)
+{
+	free(f->nb);
+	free(f->c);
+	free(f->str);
+	free(f->alias_box_a.nb);
+	free(f->alias_box_a.c);
+}
 
-	t_box	ft_init_t_big_box_b(void)
-	{
-		t_mega_big_box a;
-	}
+//Ej.4
+void	ej_4_a(void)
+{
+	t_mega_big_box	f;
 
-////////////////////////////////////// Ej. 5
-//{ } Función que limpie la posible memoria reservada de una 't_mega_big_box'
+	f.alias_box_b.nb = 2;
+	f.alias_box_b.c = 'R';
+	f.alias_big_box.c = 'A';
+	f.alias_big_box.nb = 1;
+	f.alias_big_box.str = ft_strdup("Hola hola");
+	f.alias_big_box.alias_box_a.c = 'C';
+	f.alias_big_box.alias_box_a.nb = 9;
+}
 
-	void	ft_free_t_mega_big_box(t_mega_big_box *s)
-	{
-		free((*s)->boxB->nb);
-		free((*s)->boxB->c);
-		free((*s)->big_boxA->(*str));
-		free((*s)->big_boxA->nb);
-		free((*s)->big_boxA->c);
-		free((*s)->big_boxA->boxA->nb));
-		free((*s)->big_boxA->boxA->c));
-	}
+t_box	ej_4_b(void)
+{
+	t_mega_big_box	g;
 
-////////////////////////////////////// Ej. 6
-//{ } Función que dada una 't_mega_big_box' imprima el carácter con menor valor ASCII de las dos 't_box' que contiene
+	f.alias_box_b.nb = 5;
+	f.alias_box_b.c = 'U';
+	f.alias_big_box.c = 'D';
+	f.alias_big_box.nb = 6;
+	f.alias_big_box.str = ft_strdup("Que tal");
+	f.alias_big_box.alias_box_a.c = 'V';
+	f.alias_big_box.alias_box_a.nb = 0;
+}
 
-	char	ft_print_lower_char(struct *t_mega_big_box)
-	{
-		if ((*t_mega_big_box)->boxB->c < (*t_mega_big_box)->big_boxA->c)
-			return ((*t_mega_big_box)->boxB->c);
-		else if ((*t_mega_big_box)->boxB->c == (*t_mega_big_box)->big_boxA->c)
-			return (NULL);
-		else
-			return ((*t_mega_big_box)->big_boxA->c);
-	}
+//Ej.5
+void	free_mega_big_box(t_mega_big_box *h)
+{
+	free(h->alias_box_b.nb);
+	free(h->alias_box_b.c);
+	free(h->alias_big_box.c);
+	free(h->alias_big_box.nb);
+	free(h->alias_big_box.str);
+	free(h->alias_big_box.alias_box_a.c);
+	free(h->alias_big_box.alias_box_a.nb);
+}
+
+//Ej.6
+void	print_lower_char(t_mega_big_box *r)
+{
+	if (r->alias_big_box.alias_box_a.c > r->alias_big_box.c)
+		return (r->alias_box_b.c);
+	else if (r->alias_big_box.alias_box_a.c == r->alias_big_box.c)
+		return (NULL);
+	else
+		return (r->alias_big_box.alias_box_a.c);
 }
