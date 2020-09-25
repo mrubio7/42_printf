@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 03:02:30 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/25 18:47:15 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/09/26 01:47:59 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ void	ft_check_arg(char *s, va_list args)
 		ft_putnbr(va_arg(args, int));
 	else if (s[z] == 'u')
 		ft_putnbr_abs(va_arg(args, int));
+	else if (s[z] == 'x')
+		ft_puthex(va_arg(args, int), 0);
+	else if (s[z] == 'X')
+		ft_puthex(va_arg(args, int), 1);
 	else if (s[z] == '%')
 		ft_putchar('%');
 }
