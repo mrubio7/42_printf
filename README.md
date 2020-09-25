@@ -12,8 +12,7 @@ Volver a programar printf.
 %p -> 🔃<br/>
 %u -> ✅<br/>
 %x -> 🔃<br/>
-
-- -> 🔃<br/>
+-> 🔃<br/>
 0 -> 🔃<br/>
 . -> 🔃<br/>
 * -> 🔃<br/>
