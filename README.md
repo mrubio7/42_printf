@@ -4,7 +4,7 @@
 
 Volver a programar printf.
 
-%c -> ✅
+%c -> ✅\n
 %d -> ✅
 %i -> ✅
 %s -> ✅
