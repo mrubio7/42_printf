@@ -6,13 +6,15 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 22:34:50 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/25 02:46:48 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/09/25 10:02:27 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+int		ft_putchar_fd(char c, int fd, int x)
 {
 	write(fd, &c, 1);
+	x++;
+	return (x);
 }

@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 19:43:04 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/25 03:58:38 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/09/25 10:06:55 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ int		ft_printf(const char *str, ...)
 	{
 		if (str[x] == '%')
 		{
-			x += ft_check_arg((char *)str + x + 1, args);
+			x += ft_check_arg((char *)str + x + 1, args, x);
 		}
-		ft_putchar_fd(str[x], 1);
-		x++;
+		ft_putchar_fd(str[x], 1, x);
 	}
 	return (0);
 }

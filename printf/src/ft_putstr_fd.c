@@ -6,20 +6,21 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 01:15:47 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/25 02:46:58 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/09/25 10:06:15 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int		ft_putstr_fd(char *s, int fd, int x)
 {
 	if (s && fd)
 	{
-		while (*s != '\0')
+		while (s[x] != '\0')
 		{
 			write(fd, &*s, 1);
-			s++;
+			x++;
 		}
 	}
+	return (x);
 }
