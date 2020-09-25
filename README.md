@@ -11,7 +11,8 @@ Volver a programar printf.
 `%%` -> ✅<br/>
 `%p` -> 🔃<br/>
 `%u` -> ✅<br/>
-`%x` -> 🔃<br/>
+`%x` -> ✅<br/>
+`%X` -> ✅<br/>
 
 *flags*<br/>
 `-` -> 🔃<br/>
