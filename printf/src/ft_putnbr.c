@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/20 22:34:50 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/25 17:10:47 by mrubio           ###   ########.fr       */
+/*   Created: 2020/07/21 01:22:15 by mrubio            #+#    #+#             */
+/*   Updated: 2020/09/25 18:32:24 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putnbr(int n)
 {
-	write(fd, &c, 1);
+	if (n < 0)
+	{
+		ft_putchar('-');
+		if (n <= -10)
+			ft_putnbr(n / -10);
+		ft_putchar(-(n % 10) + 48);
+	}
+	else if (n > 9)
+	{
+		ft_putnbr(n / 10);
+		ft_putchar((n % 10) + 48);
+	}
+	else
+		ft_putchar((n % 10) + 48);
 }
