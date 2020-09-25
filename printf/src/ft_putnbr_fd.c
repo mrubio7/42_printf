@@ -6,27 +6,27 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 01:22:15 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/25 10:09:50 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/09/25 15:28:20 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-int		ft_putnbr_fd(int n, int fd, int x)
+int		ft_putnbr_fd(int n, int fd, int z)
 {
 	if (n < 0)
 	{
-		ft_putchar_fd('-', fd, x);
+		z = ft_putchar_fd('-', fd, z);
 		if (n <= -10)
-			ft_putnbr_fd(n / -10, fd, x);
-		ft_putchar_fd(-(n % 10) + 48, fd, x);
+			z = ft_putnbr_fd(n / -10, fd, z);
+		z = ft_putchar_fd(-(n % 10) + 48, fd, z);
 	}
 	else if (n > 9)
 	{
-		ft_putnbr_fd(n / 10, fd, x);
-		ft_putchar_fd((n % 10) + 48, fd, x);
+		z = ft_putnbr_fd(n / 10, fd, z);
+		z = ft_putchar_fd((n % 10) + 48, fd, z);
 	}
 	else
-		ft_putchar_fd((n % 10) + 48, fd, x);
-	return (x);
+		z = ft_putchar_fd((n % 10) + 48, fd, z);
+	return (z);
 }
