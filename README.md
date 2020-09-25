@@ -13,7 +13,7 @@ Volver a programar printf.
 `%u` -> ✅<br/>
 `%x` -> 🔃<br/>
 
-*flags<br/>
+*flags*<br/>
 `-` -> 🔃<br/>
 `0` -> 🔃<br/>
 `.` -> 🔃<br/>
