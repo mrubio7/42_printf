@@ -2,4 +2,4 @@
 
 ## Objetivo
 
-Volver a programar prinf.
+Volver a programar printf.
