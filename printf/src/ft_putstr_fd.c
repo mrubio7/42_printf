@@ -6,13 +6,13 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 01:15:47 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/25 15:28:51 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/09/25 17:07:48 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-int		ft_putstr_fd(char *s, int fd, int z)
+void	ft_putstr_fd(char *s, int fd)
 {
 	if (s && fd)
 	{
@@ -20,8 +20,6 @@ int		ft_putstr_fd(char *s, int fd, int z)
 		{
 			write(fd, &*s, 1);
 			s++;
-			z++;
 		}
 	}
-	return (z);
 }
