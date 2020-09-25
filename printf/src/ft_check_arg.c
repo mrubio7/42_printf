@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 03:02:30 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/25 18:31:04 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/09/25 18:47:15 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,4 @@ void	ft_check_arg(char *s, va_list args)
 		ft_putnbr_abs(va_arg(args, int));
 	else if (s[z] == '%')
 		ft_putchar('%');
-	
 }
