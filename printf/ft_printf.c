@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 19:43:04 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/25 18:48:37 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/09/25 18:53:32 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ int		main(void)
 	char *s;
 
 	s = ft_strdup("Madrid");
-	ft_printf("Hello %d%s", 32767, s);
+	ft_printf("Hello %d%s", 3276427, s);
 }
