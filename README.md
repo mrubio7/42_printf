@@ -19,3 +19,7 @@ Volver a programar una parte de printf.
 `0` -> 🔃<br/>
 `.` -> 🔃<br/>
 `*` -> 🔃<br/>
+
+## Uso
+
+El programa usa un Makefile, por lo que con el comando `make` directamente creara un archivo `libftprintf.a` que deberas compilar y ejecutar
