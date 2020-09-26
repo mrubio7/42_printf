@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Volver a programar printf.
+Volver a programar una parte de printf.
 
 `%c` -> ✅<br/>
 `%d` -> ✅<br/>
