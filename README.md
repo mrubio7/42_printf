@@ -22,4 +22,6 @@ Volver a programar una parte de printf.
 
 ## Uso
 
-El programa usa un Makefile, por lo que con el comando `make` directamente creara un archivo `libftprintf.a` que deberas compilar y ejecutar
+El programa usa un Makefile, por lo que con el comando `make` directamente creara un archivo `libftprintf.a` que deberas compilar y ejecutar.
+
+Una vez creado, si quieres eliminar los archivos "*.o" bastará con usar `make clean` o si tambien quieres borrar "libftprintf.a" `make fclean`.
