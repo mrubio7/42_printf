@@ -9,7 +9,7 @@ Volver a programar una parte de printf.
 `%i` -> ✅<br/>
 `%s` -> ✅<br/>
 `%%` -> ✅<br/>
-`%p` -> 🔃<br/>
+`%p` -> ✅<br/>
 `%u` -> ✅<br/>
 `%x` -> ✅<br/>
 `%X` -> ✅<br/>
