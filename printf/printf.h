@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 02:43:13 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/26 01:48:40 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/09/28 00:59:46 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ void			ft_putnbr(long n);
 void			ft_putstr(char *s);
 void			ft_putnbr_abs(int n);
 void			ft_puthex(int n, int mayus);
+void			ft_putmem(void *addr);
 int				ft_printf(const char *str, ...);

@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 20:43:52 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/26 01:53:09 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/09/28 01:04:22 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		main(void)
 {
-	int s;
+	int *a;
 
-	s = 42;
-	ft_printf("Hello %x\n", s);
-	printf("Hello %x", s);
+	a = malloc(1024*1024*1024);
+	printf("Address of a: %p\n", &a);
+	ft_printf("Address of a: %p\n", &a);
 }

@@ -1,36 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_putmem.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/26 00:06:04 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/27 01:11:24 by mrubio           ###   ########.fr       */
+/*   Created: 2020/07/20 22:34:50 by mrubio            #+#    #+#             */
+/*   Updated: 2020/09/28 01:03:18 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "../printf.h"
 
-void	ft_print_numhex_caps(int nb)
-{
-	if (nb < 10)
-		ft_putnbr(nb);
-	else if (nb == 10)
-		ft_putchar('A');
-	else if (nb == 11)
-		ft_putchar('B');
-	else if (nb == 12)
-		ft_putchar('C');
-	else if (nb == 13)
-		ft_putchar('D');
-	else if (nb == 14)
-		ft_putchar('E');
-	else if (nb == 15)
-		ft_putchar('F');
-}
-
-void	ft_print_numhex_low(int nb)
+void	ft_print_numhex(int nb)
 {
 	if (nb < 10)
 		ft_putnbr(nb);
@@ -48,24 +30,24 @@ void	ft_print_numhex_low(int nb)
 		ft_putchar('f');
 }
 
-void	ft_puthex(int n, int mayus)
+void	ft_putmem_hex(long n)
 {
-	int bignum;
+	long bignum;
 
 	bignum = 16;
+	ft_putstr("0x");
 	while ((bignum * 16) < n)
 		bignum *= 16;
 	while (n > 16)
 	{
-		if (mayus == 1)
-			ft_print_numhex_caps(n / bignum);
-		else
-			ft_print_numhex_low(n / bignum);
+		ft_print_numhex(n / bignum);
 		n %= bignum;
 		bignum /= 16;
 	}
-	if (mayus == 1)
-		ft_print_numhex_caps(n);
-	else
-		ft_print_numhex_low(n);
+	ft_print_numhex(n);
+}
+
+void	ft_putmem(void *addr)
+{
+	ft_putmem_hex((long)addr);
 }

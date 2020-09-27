@@ -12,6 +12,7 @@ SRC =	ft_printf.c\
 		src/ft_putstr.c\
 		src/ft_putnbr_abs.c\
 		src/ft_puthex.c\
+		src/ft_putmem.c\
 		main.c\
 
 OBJ = $(SRC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 03:02:30 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/26 01:47:59 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/09/28 00:59:40 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,6 @@ void	ft_check_arg(char *s, va_list args)
 		ft_puthex(va_arg(args, int), 1);
 	else if (s[z] == '%')
 		ft_putchar('%');
+	else if (s[z] == 'p')
+		ft_putmem((void *)va_arg(args, long));
 }
