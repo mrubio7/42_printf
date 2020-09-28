@@ -6,13 +6,13 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 22:34:50 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/28 01:03:18 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/09/28 11:10:40 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-void	ft_print_numhex(int nb)
+void	ft_print_numhex(unsigned long nb)
 {
 	if (nb < 10)
 		ft_putnbr(nb);
@@ -30,9 +30,9 @@ void	ft_print_numhex(int nb)
 		ft_putchar('f');
 }
 
-void	ft_putmem_hex(long n)
+void	ft_putmem_hex(unsigned long n)
 {
-	long bignum;
+	unsigned long bignum;
 
 	bignum = 16;
 	ft_putstr("0x");
@@ -49,5 +49,5 @@ void	ft_putmem_hex(long n)
 
 void	ft_putmem(void *addr)
 {
-	ft_putmem_hex((long)addr);
+	ft_putmem_hex((unsigned long)addr);
 }
