@@ -6,48 +6,52 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 22:34:50 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/28 11:10:40 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/09/28 14:31:14 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-void	ft_print_numhex(unsigned long nb)
+int		ft_print_numhex(unsigned long nb)
 {
 	if (nb < 10)
-		ft_putnbr(nb);
+		return(ft_putnbr(nb));
 	else if (nb == 10)
-		ft_putchar('a');
+		return(ft_putchar('a'));
 	else if (nb == 11)
-		ft_putchar('b');
+		return(ft_putchar('b'));
 	else if (nb == 12)
-		ft_putchar('c');
+		return(ft_putchar('c'));
 	else if (nb == 13)
-		ft_putchar('d');
+		return(ft_putchar('d'));
 	else if (nb == 14)
-		ft_putchar('e');
+		return(ft_putchar('e'));
 	else if (nb == 15)
-		ft_putchar('f');
+		return(ft_putchar('f'));
+	return (0);
 }
 
-void	ft_putmem_hex(unsigned long n)
+int		ft_putmem_hex(unsigned long n)
 {
+	int i;
 	unsigned long bignum;
 
+	i = 2;
 	bignum = 16;
 	ft_putstr("0x");
 	while ((bignum * 16) < n)
 		bignum *= 16;
 	while (n > 16)
 	{
-		ft_print_numhex(n / bignum);
+		i += ft_print_numhex(n / bignum);
 		n %= bignum;
 		bignum /= 16;
 	}
-	ft_print_numhex(n);
+	i += ft_print_numhex(n);
+	return (i);
 }
 
-void	ft_putmem(void *addr)
+int		ft_putmem(void *addr)
 {
-	ft_putmem_hex((unsigned long)addr);
+	return(ft_putmem_hex((unsigned long)addr));
 }
