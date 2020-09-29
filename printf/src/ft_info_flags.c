@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:14:21 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/30 01:28:41 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/09/30 01:34:31 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ inf_pf	ft_info_flags(char *str, va_list args, inf_flg flags, inf_pf print)
 	if (str[x] == '*')
 	{
 		flags.num_add = va_arg(args, int);
-		print.x++;
+		x++;
 	}
 	else if ((str[x] >= '1' && str[x] <= '9') || str[x] == '-')
 	{
