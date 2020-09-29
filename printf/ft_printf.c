@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 19:43:04 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/28 14:32:12 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/09/29 22:33:48 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 int		ft_printf(const char *str, ...)
 {
-	int x;
-	int z;
 	va_list args;
+	inf_pf *print;
+	inf_flg *flags;
 
-	z = 0;
-	x = 0;
+	print = malloc(sizeof(print));
+	flags = malloc(sizeof(flags));
 	va_start(args, str);
-	while (str[x])
+	while (str[print->x])
 	{
-		if (str[x] == '%')
+		if (str[print->x] == '%')
 		{
-			z += ft_check_arg((char *)str + x + 1, args);
-			x++;
+			*print = ft_info_flags((char *)str + print->x + 1, args, *flags, *print);
 		}
 		else
-			z += ft_putchar(str[x]);
-		x++;
+			print->ret += ft_putchar(str[print->x]);
+		print->x++;
 	}
-	return (z);
+	free(flags);
+	return (print->ret);
 }

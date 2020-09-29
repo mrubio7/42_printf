@@ -6,13 +6,13 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 03:02:30 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/28 14:29:36 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/09/29 20:53:14 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-int		ft_check_arg(char *s, va_list args)
+int		ft_check_arg(char *s, va_list args, inf_flg flags)
 {
 	int z;
 	int r;
@@ -24,9 +24,9 @@ int		ft_check_arg(char *s, va_list args)
 	else if (s[z] == 's')
 		r += ft_putstr(va_arg(args, char*));
 	else if (s[z] == 'd' || s[z] == 'i')
-		r += ft_putnbr(va_arg(args, int));
+		r += ft_put_flag_nbr(va_arg(args, int), flags);
 	else if (s[z] == 'u')
-		r += ft_putnbr_abs(va_arg(args, int));
+		r += ft_putnbr_abs(va_arg(args, int), flags);
 	else if (s[z] == 'x')
 		r += ft_puthex(va_arg(args, int), 0);
 	else if (s[z] == 'X')

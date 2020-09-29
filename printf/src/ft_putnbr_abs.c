@@ -6,15 +6,15 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 01:22:15 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/28 14:24:03 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/09/29 20:53:12 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-int		ft_putnbr_abs(int n)
+int		ft_putnbr_abs(int n, inf_flg flags)
 {
 	if (n < 0)
 		n *= -1;
-	return(ft_putnbr(n));
+	return(ft_put_flag_nbr(n, flags));
 }
