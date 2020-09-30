@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 01:22:15 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/30 23:22:25 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/01 00:43:21 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,15 @@ int		ft_put_flag_nbr(long n, inf_flg flags)
 	int siz;
 
 	x = 0;
+	siz = ft_count_nbr(n);
+	flags.num_add -= siz;
 	flags.num_add -= flags.dot;
 	if (flags.alig == 1)
 	{
-		while (flags.dot-- > 0)
+		while (flags.dot-- > 0 && flags.num_add > siz)
 			x += ft_putchar('0');
 		x += ft_putnbr(n);
 	}
-	siz = ft_count_nbr(n);
-	flags.num_add -= siz;
 	while (flags.num_add-- > 0)
 	{
 		if (flags.zero == 1)
@@ -69,7 +69,7 @@ int		ft_put_flag_nbr(long n, inf_flg flags)
 		else
 			x += ft_putchar(' ');
 	}
-	while (flags.dot-- > 0)
+	while (flags.dot-- > 0 && flags.num_add > siz)
 		x += ft_putchar('0');
 	if (flags.alig == 0)
 		x += ft_putnbr(n);

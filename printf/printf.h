@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 02:43:13 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/30 20:27:16 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/01 00:28:22 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int				ft_putchar(char c);
 int				ft_put_flag_nbr(long n, inf_flg flags);
 int				ft_putnbr(long n);
 int				ft_putstr(char *s);
-int				ft_putnbr_abs(int n, inf_flg flags);
+int				ft_putnbr_abs(long n, inf_flg flags);
 int				ft_puthex(int n, int mayus);
 int				ft_putmem(void *addr);
 int				ft_printf(const char *str, ...);
