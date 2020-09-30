@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 01:22:15 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/30 01:23:26 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/09/30 18:02:02 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,12 @@ int		ft_put_flag_nbr(long n, inf_flg flags)
 		x += ft_putnbr(n);
 	siz = ft_count_nbr(n);
 	flags.num_add -= siz;
-	while (flags.num_add)
+	while (flags.num_add > 0)
 	{
-		write(1, " ", 1);
+		if (flags.zero == 1)
+			write(1, "0", 1);
+		else
+			write(1, " ", 1);
 		flags.num_add--;
 		x++;
 	}
