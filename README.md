@@ -15,10 +15,10 @@ Volver a programar una parte de printf.
 `%X` -> ✅<br/>
 
 *flags*<br/>
-`-` -> 🔃<br/>
+`-` -> ✅ en d/i<br/>
 `0` -> 🔃<br/>
 `.` -> 🔃<br/>
-`*` -> 🔃<br/>
+`*` -> ✅ en d/i<br/>
 
 ## Uso
 
