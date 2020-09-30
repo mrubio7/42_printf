@@ -16,7 +16,7 @@ Volver a programar una parte de printf.
 
 *flags*<br/>
 `-` -> ✅ en d/i<br/>
-`0` -> 🔃<br/>
+`0` -> ✅<br/>
 `.` -> 🔃<br/>
 `*` -> ✅ en d/i<br/>
 
