@@ -10,6 +10,7 @@ SRC =	ft_printf.c\
 		src/ft_info_flags.c\
 		src/ft_putchar.c\
 		src/ft_put_flag_nbr.c\
+		src/ft_putnbr.c\
 		src/ft_putstr.c\
 		src/ft_putnbr_abs.c\
 		src/ft_puthex.c\

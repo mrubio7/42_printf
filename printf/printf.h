@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 02:43:13 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/01 00:28:22 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/01 12:19:03 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 
 typedef struct struct_flags
 {
-	int		num_add;
+	int		spc;
 	int		alig;
 	int		zero;
-	int		dot;
+	int		siznum;
 }inf_flg;
 
 typedef struct struct_printf

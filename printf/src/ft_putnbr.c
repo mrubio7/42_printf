@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/25 20:43:52 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/01 13:09:30 by mrubio           ###   ########.fr       */
+/*   Created: 2020/10/01 10:25:49 by mrubio            #+#    #+#             */
+/*   Updated: 2020/10/01 10:26:30 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "../printf.h"
 
-int		main(void)
+int		ft_putnbr(long n)
 {
-	int a;
-	int res;
-	int ress;
+	int x;
 
-	a = 5;
-	res = printf("|%3d|\n", a);
-	printf("%d\n", res);
-	ress = ft_printf("|%3d|\n", a);
-	ft_printf("%d\n", ress);
+	x = 0;
+	if (n < 0)
+	{
+		x += ft_putchar('-');
+		if (n <= -10)
+			x += ft_putnbr(n / -10);
+		x += ft_putchar(-(n % 10) + 48);
+	}
+	else if (n > 9)
+	{
+		x += ft_putnbr(n / 10);
+		x += ft_putchar((n % 10) + 48);
+	}
+	else
+		x += ft_putchar((n % 10) + 48);
+	return (x);
 }

@@ -6,16 +6,21 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:14:21 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/30 23:04:43 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/02 17:07:11 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-char	*ft_count_num(char *num, char *str)
+int		ft_num2str(char *str)
 {
 	int x;
-
+	char *num;
+	
+	x = 0;
+	while (str[x] >= '0' && str[x] <= '9')
+		x++;
+	num = malloc(x + 1);
 	x = 0;
 	while (str[x] >= '0' && str[x] <= '9')
 	{
@@ -23,59 +28,49 @@ char	*ft_count_num(char *num, char *str)
 		x++;
 	}
 	num[x] = '\0';
-	return (num);
+
+	return (atoi(num));
 }
 
-int		ft_ret_flag_num(char *str, inf_flg **flags)
+int		ft_nblen(long n)
 {
-	int		x;
-	char	*num;
+	int size;
 
-	x = 0;
-	while (str[x] >= '0' && str[x] <= '9')
-		x++;
-	num = malloc(x + 1);
-	x = 0;
-	num = ft_count_num(num, str + x);
-	x += ft_strlen(num);
-	(*flags)->num_add = atoi(num);
-	if (str[x] == '.')
-	{
-		x++;
-		num = ft_count_num(num, str + x);
-		(*flags)->dot = (*flags)->num_add - atoi(num);
-	}
-	x += ft_strlen(num);
-	free(num);
-	return (x);
+	size = 0;
+	while ((n /= 10) != 0)
+		size++;
+	return (size);
 }
 
 int		ft_read_flags(char *str, va_list args, inf_flg *flags)
 {
 	int x;
+	char *num;
 
 	x = 0;
-	if (str[x] == '-')
+	while (str[x] != ('s' | 'c' | 'd' | 'i' | 'u' | 'x' | 'X' | 'p' | '%'))
 	{
-		flags->alig = 1;
-		x++;
+		if (str[x] == '-')
+			flags->alig = 1;
+		if (str[x] == '0')
+			flags->zero = 1;
+		if (str[x] == '*')
+			flags->spc = va_arg(args, int);
+		if (str[x] >= '1' && str[x] <= '9')
+		{
+			flags->spc = ft_num2str(str + x);
+			x += ft_nblen(flags->spc);
+		}
+		if (str[x] == '.')
+		{
+			flags->siznum = ft_num2str(str + x + 1);
+			x += (ft_nblen(flags->spc) + 1);
+		}
 	}
-	else if (str[x] == '0')
-	{
-		flags->zero = 1;
-		x++;
-	}
-	if (str[x] == '*')
-	{
-		flags->num_add = va_arg(args, int);
-		x++;
-	}
-	else if ((str[x] >= '1' && str[x] <= '9') || str[x] == '-')
-		x += ft_ret_flag_num((char *)str + x, &flags);
 	return (x);
 }
 
-inf_pf	ft_info_flags(char *str, va_list args, inf_flg flags, inf_pf print)
+inf_pf		ft_info_flags(char *str, va_list args, inf_flg flags, inf_pf print)
 {
 	int		z;
 	int		x;
