@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 02:45:47 by mrubio            #+#    #+#             */
-/*   Updated: 2020/09/29 17:28:25 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/06 16:49:39 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ unsigned int	ft_strlen(const char *str)
 	return (x);
 }
 
-void	*ft_memcpy(void *dest, const void *src, unsigned int n)
+void			*ft_memcpy(void *dest, const void *src, unsigned int n)
 {
 	char		*s;
 	char		*d;
@@ -43,7 +43,7 @@ void	*ft_memcpy(void *dest, const void *src, unsigned int n)
 	return (dest);
 }
 
-char	*ft_strdup(const char *src)
+char			*ft_strdup(const char *src)
 {
 	char	*s;
 	int		x;
@@ -60,31 +60,28 @@ char	*ft_strdup(const char *src)
 	return (s);
 }
 
-int		ft_atoi(const char *str)
+int				ft_strchr_mod(char *s, int c)
 {
-	int				x;
-	long long int	num;
-	long long int	sig;
+	int x;
 
 	x = 0;
-	sig = 1;
-	num = 0;
-	while (str[x] == 32 || str[x] == 10 || str[x] == 9
-	|| str[x] == 12 || str[x] == 13 || str[x] == 11)
-		x++;
-	if (str[x] == '-' || str[x] == '+')
+	while (s[x])
 	{
-		if (str[x] == '-')
-			sig = -1;
+		if (s[x] == c)
+			return (1);
 		x++;
 	}
-	while (str[x] != '\0')
-	{
-		if (str[x] < 48 || 57 < str[x])
-			return (num * sig);
-		else
-			num = (num * 10) + (str[x] - '0');
-		x++;
-	}
-	return (num * sig);
+	if (!c && s[x] == '\0')
+		return (0);
+	return (0);
+}
+
+int				ft_nblen(long n)
+{
+	int size;
+
+	size = 0;
+	while ((n /= 10) != 0)
+		size++;
+	return (size);
 }
