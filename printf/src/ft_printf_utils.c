@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 02:45:47 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/06 16:49:39 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/07 19:42:46 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char			*ft_strdup(const char *src)
 	return (s);
 }
 
-int				ft_strchr_mod(char *s, int c)
+char		*ft_strchr(char *s, int c)
 {
 	int x;
 
@@ -68,12 +68,12 @@ int				ft_strchr_mod(char *s, int c)
 	while (s[x])
 	{
 		if (s[x] == c)
-			return (1);
+			return (s + x);
 		x++;
 	}
 	if (!c && s[x] == '\0')
-		return (0);
-	return (0);
+		return (s + x);
+	return (NULL);
 }
 
 int				ft_nblen(long n)
@@ -81,7 +81,10 @@ int				ft_nblen(long n)
 	int size;
 
 	size = 0;
-	while ((n /= 10) != 0)
+	while (n != 0)
+	{
+		n /= 10;
 		size++;
+	}
 	return (size);
 }

@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 02:43:13 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/06 16:45:19 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/07 18:48:39 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ unsigned int	ft_strlen(const char *str);
 void			*ft_memcpy(void *dest, const void *src, unsigned int n);
 char			*ft_strdup(const char *src);
 int				ft_nblen(long n);
-int				ft_strchr_mod(char *s, int c); //Utils
+char			*ft_strchr(char *s, int c); //Utils
 
 int				ft_check_arg(char *s, va_list args, inf_flg flags);
 inf_pf			ft_info_flags(char *str, va_list args, inf_flg flags, inf_pf print);
