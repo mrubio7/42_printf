@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 20:43:52 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/07 19:53:38 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/07 20:37:40 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int		main(void)
 	int res;
 
 	a = 42;
-	res = printf("|%5.3d|\n", a);
+	res = printf("|%*d|\n", 3, a);
 	printf("%d\n", res);
-	res = ft_printf("|%5.3d|\n", a);
+	res = ft_printf("|%*d|\n", 3, a);
 	ft_printf("%d\n", res);
 }

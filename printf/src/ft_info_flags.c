@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:14:21 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/07 19:46:24 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/07 20:33:27 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void		read_flag_ast(char *str, va_list args, inf_flg **flags)
 
 	x = 0;
 	if (str[x + 1] == '.')
-		(*flags)->f_ast = va_arg(args, int);
+		(*flags)->first = va_arg(args, int);
 	else if (str[x - 1] == '.')
-		(*flags)->s_ast = va_arg(args, int);
+		(*flags)->second = va_arg(args, int);
 	else
 		(*flags)->ast = va_arg(args, int);
 }
