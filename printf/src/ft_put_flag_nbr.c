@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 01:22:15 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/09 02:37:55 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/09 13:24:43 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int		flag_alig(inf_flg *flags)
 	int x;
 
 	x = 0;
+	if (flags->minus == 1)
+		flags->first--;
 	while (flags->first > flags->second)
 	{
 		x += ft_putchar(' ');
