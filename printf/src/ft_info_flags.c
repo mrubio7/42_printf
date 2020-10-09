@@ -6,11 +6,18 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:14:21 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/07 20:33:27 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/09 02:05:55 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
+
+long		ft_abs(long n)
+{
+	if (n < 0)
+		return (n * -1);
+	return (n);
+}
 
 int			ft_ret_char2int(char *str)
 {
