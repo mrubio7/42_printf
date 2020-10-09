@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 02:43:13 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/07 18:48:39 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/09 02:02:05 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct struct_flags
 	int		f_ast;
 	int		s_ast;
 	int		ast;
+	int		minus;
+	int		dot;
 }inf_flg;
 
 typedef struct struct_printf
@@ -41,6 +43,7 @@ char			*ft_strdup(const char *src);
 int				ft_nblen(long n);
 char			*ft_strchr(char *s, int c); //Utils
 
+long			ft_abs(long n);
 int				ft_check_arg(char *s, va_list args, inf_flg flags);
 inf_pf			ft_info_flags(char *str, va_list args, inf_flg flags, inf_pf print);
 

@@ -6,11 +6,18 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:14:21 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/07 20:33:27 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/09 13:06:32 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
+
+long		ft_abs(long n)
+{
+	if (n < 0)
+		return (n * -1);
+	return (n);
+}
 
 int			ft_ret_char2int(char *str)
 {
@@ -61,6 +68,7 @@ int			ft_read_flags(char *str, va_list args, inf_flg *flags)
 		else if (str[x] == '.' && (str[x + 1] >= '0' && str[x + 1] <= '9'))
 		{
 			flags->second = ft_ret_char2int(str + x + 1);
+			flags->dot = 1;
 			x += ft_nblen(flags->second);
 		}
 		x++;
