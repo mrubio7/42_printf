@@ -6,18 +6,11 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:14:21 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/09 13:06:32 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/11 00:16:01 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
-
-long		ft_abs(long n)
-{
-	if (n < 0)
-		return (n * -1);
-	return (n);
-}
 
 int			ft_ret_char2int(char *str)
 {
@@ -42,9 +35,16 @@ void		read_flag_ast(char *str, va_list args, inf_flg **flags)
 	if (str[x + 1] == '.')
 		(*flags)->first = va_arg(args, int);
 	else if (str[x - 1] == '.')
-		(*flags)->second = va_arg(args, int);
+		(*flags)->second = ft_abs(va_arg(args, int));
 	else
 		(*flags)->ast = va_arg(args, int);
+}
+
+int			read_flag_dot(char *str, inf_flg **flags)
+{
+	(*flags)->second = ft_ret_char2int(str + 1);
+	(*flags)->dot = 1;
+	return (ft_nblen((*flags)->second));
 }
 
 int			ft_read_flags(char *str, va_list args, inf_flg *flags)
@@ -66,11 +66,9 @@ int			ft_read_flags(char *str, va_list args, inf_flg *flags)
 			x += (ft_nblen(flags->first) - 1);
 		}
 		else if (str[x] == '.' && (str[x + 1] >= '0' && str[x + 1] <= '9'))
-		{
-			flags->second = ft_ret_char2int(str + x + 1);
+			x += read_flag_dot(str + x, &flags);
+		else if (str[x] == '.' && flags->dot == 0)
 			flags->dot = 1;
-			x += ft_nblen(flags->second);
-		}
 		x++;
 	}
 	return (x);

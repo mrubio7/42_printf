@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_put_flag_char.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/25 20:43:52 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/11 00:43:29 by mrubio           ###   ########.fr       */
+/*   Created: 2020/10/11 00:41:54 by mrubio            #+#    #+#             */
+/*   Updated: 2020/10/11 00:42:48 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "../printf.h"
 
-int		main(void)
+int		ft_put_flag_char(char c, inf_flg flags)
 {
-	int a;
-	int res;
-
-	a = 'd';
-	res = printf("|%.c|\n", a);
-	printf("%d\n", res);
-	res = ft_printf("|%.c|\n", a);
-	ft_printf("%d\n", res);
+	
 }

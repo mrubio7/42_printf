@@ -6,13 +6,20 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 03:02:30 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/09 02:36:09 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/11 00:43:10 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-int		ft_check_arg(char *s, va_list args, inf_flg flags)
+long		ft_abs(long n)
+{
+	if (n < 0)
+		return (n * -1);
+	return (n);
+}
+
+int			ft_check_arg(char *s, va_list args, inf_flg flags)
 {
 	int z;
 	int r;
@@ -20,7 +27,7 @@ int		ft_check_arg(char *s, va_list args, inf_flg flags)
 	r = 0;
 	z = 0;
 	if (s[z] == 'c')
-		r += ft_putchar(va_arg(args, int));
+		r += ft_put_flag_char(va_arg(args, int), flags);
 	else if (s[z] == 's')
 		r += ft_putstr(va_arg(args, char*));
 	else if (s[z] == 'd' || s[z] == 'i')

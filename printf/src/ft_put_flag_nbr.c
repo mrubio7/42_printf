@@ -6,66 +6,72 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 01:22:15 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/09 13:24:43 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/11 00:37:04 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-int		flag_alig(inf_flg *flags)
+int		print_width(long n, inf_flg *flags)
 {
 	int x;
-
+	int siz;
+	int i;
+	
 	x = 0;
-	if (flags->minus == 1)
-		flags->first--;
-	while (flags->first > flags->second)
-	{
-		x += ft_putchar(' ');
-		flags->first--;
-	}
-	flags->alig = -1;
+	i = flags->first;
+	siz = (flags->second > ft_nblen(n)) ? flags->second : ft_nblen(n);
+	i -= siz + (n < 0);
+	if (n < 0 && flags->alig == 0 && flags->zero == 1)
+		ft_putchar('-');
+	if (n == 0 && flags->second == 0)
+		i++;
+	if (flags->zero == 1)
+		while (i-- > 0)
+			x += ft_putchar('0');
+	else
+		while (i-- > 0)
+			x += ft_putchar(' ');
+	if (n < 0 && flags->alig == 0 && flags->zero == 0)
+		ft_putchar('-');
 	return (x);
 }
 
-int		flag_zero(long n, inf_flg *flags)
+int		print_sign(long n)
 {
 	int x;
-
+	
 	x = 0;
-	if (flags->minus == 1)
-	{
-		flags->minus = 0;
+	if (n < 0)
 		x += ft_putchar('-');
-	}
-	while (flags->first-- > ft_nblen(n))
-		x += ft_putchar('0');
-	flags->zero = -1;
 	return (x);
 }
 
-int		flag_num(long n, inf_flg *flags)
+int		print_num(long n, inf_flg *flags)
 {
 	int x;
 
 	x = 0;
-	if (flags->minus == 1)
+	if (n < 0)
+		n *= -1;
+	if (n == 0 && flags->second == 0)
+		return (x);
+	x += ft_putnbr(n);
+	return (x);
+}
+
+int		print_prec(long n ,inf_flg *flags)
+{
+	int x;
+	int i;
+
+	i = flags->second;
+	x = 0;
+	while (i > ft_nblen(n))
 	{
-		flags->minus = 0;
-		x += ft_putchar('-');
-	}
-	while (flags->second-- > ft_nblen(n))
 		x += ft_putchar('0');
-	return (x);
-}
-
-int		flag_ast(inf_flg *flags)
-{
-	int x;
-
-	x = 0;
-	if (flags->ast > 0)
-		flags->first = flags->ast;
+		i--;
+	}
 	return (x);
 }
 
@@ -74,22 +80,26 @@ int		ft_put_flag_nbr(long n, inf_flg flags)
 	int x;
 
 	x = 0;
-	if (n < 0)
-		flags.minus = 1;
-	if (flags.ast > 0)
-		x += flag_ast(&flags);
-	flags.second = (flags.second < ft_nblen(n)) ? ft_nblen(n) : flags.second;
-	if (flags.alig == 0 && flags.zero == 0)
-		x += flag_alig(&flags);
-	if (flags.zero == 1)
-		x += flag_zero(n, &flags);
-	if (flags.first > 0 || flags.second > 0)
-		x += flag_num(n, &flags);
-	x += ft_putnbr(ft_abs(n));
-	if (flags.alig == 1)
+	if (flags.dot == 1 && flags.second == -1)
+		flags.second = 0;
+	if (flags.second > -1)
+		flags.zero = 0;
+	if (flags.alig == 0)
 	{
-		flags.first--;
-		x += flag_alig(&flags);
+		if (flags.zero == 1)
+			x += print_width(n, &flags);
+		else
+			x += print_width(n, &flags);
+		x += print_prec(n, &flags);
+		x += print_num(n, &flags);
+	}
+	else
+	{
+		flags.zero = 0;
+		x += print_sign(n);
+		x += print_prec(n, &flags);
+		x += print_num(n, &flags);
+		x += print_width(n, &flags);
 	}
 	return (x);
 }
