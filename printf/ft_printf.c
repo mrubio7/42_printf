@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 19:43:04 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/09 19:36:23 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/22 01:34:41 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,19 @@ int		ft_printf(const char *str, ...)
 	inf_flg flags;
 	int retur;
 
+	retur = 0;
 	ft_init_struct(&print, &flags);
 	va_start(args, str);
 	while (str[print.x])
 	{
 		if (str[print.x] == '%')
+		{
 			print = ft_info_flags((char *)str + print.x + 1, args, flags, print);
+			retur += print.ret;
+		}
 		else
-			print.ret += ft_putchar(str[print.x]);
+			retur += ft_putchar(str[print.x]);
 		print.x++;
 	}
-	retur = print.ret;
 	return (retur);
 }

@@ -8,12 +8,16 @@ SRC =	ft_printf.c\
 		src/ft_printf_utils.c\
 		src/ft_check_arg.c\
 		src/ft_info_flags.c\
+		src/ft_put_flag_char.c\
 		src/ft_putchar.c\
 		src/ft_put_flag_nbr.c\
 		src/ft_putnbr.c\
+		src/ft_put_flag_str.c\
 		src/ft_putstr.c\
 		src/ft_putnbr_abs.c\
+		src/ft_put_flag_hex.c\
 		src/ft_puthex.c\
+		src/ft_put_flag_mem.c\
 		src/ft_putmem.c\
 		main.c\
 

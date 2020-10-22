@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_flag_nbr.c                                  :+:      :+:    :+:   */
+/*   ft_put_flag_hex.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/21 01:22:15 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/19 00:40:18 by mrubio           ###   ########.fr       */
+/*   Created: 2020/10/16 19:46:28 by mrubio            #+#    #+#             */
+/*   Updated: 2020/10/22 01:17:20 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-int		print_width(long n, inf_flg *flags)
+int		ft_hexlen(long n)
+{
+	int x;
+
+	x = 0;
+	while ((n / 16) != 0)
+	{
+		x++;
+		n /= 16;
+	}	
+	x++;
+	return (x);
+}
+
+int		print_width_hex(long n, inf_flg *flags)
 {
 	int x;
 	int siz;
@@ -20,7 +34,7 @@ int		print_width(long n, inf_flg *flags)
 	
 	x = 0;
 	i = flags->first;
-	siz = (flags->second > ft_nblen(n)) ? flags->second : ft_nblen(n);
+	siz = (flags->second > ft_hexlen(n)) ? flags->second : ft_hexlen(n);
 	i -= siz + (n < 0);
 	if (n < 0 && flags->alig == 0 && flags->zero == 1)
 		ft_putchar('-');
@@ -37,7 +51,7 @@ int		print_width(long n, inf_flg *flags)
 	return (x);
 }
 
-int		print_sign(long n)
+int		print_sign_hex(long n)
 {
 	int x;
 	
@@ -47,27 +61,14 @@ int		print_sign(long n)
 	return (x);
 }
 
-int		print_num(long n, inf_flg *flags)
-{
-	int x;
-
-	x = 0;
-	if (n < 0)
-		n *= -1;
-	if (n == 0 && flags->second == 0)
-		return (x);
-	x += ft_putnbr(n);
-	return (x);
-}
-
-int		print_prec(long n ,inf_flg *flags)
+int		print_prec_hex(long n ,inf_flg *flags)
 {
 	int x;
 	int i;
 
 	i = flags->second;
 	x = 0;
-	while (i > ft_nblen(n))
+	while (i > ft_hexlen(n))
 	{
 		x += ft_putchar('0');
 		i--;
@@ -75,7 +76,7 @@ int		print_prec(long n ,inf_flg *flags)
 	return (x);
 }
 
-int		ft_put_flag_nbr(long n, inf_flg flags)
+int		ft_put_flag_hex(long n, int mayus, inf_flg flags)
 {
 	int x;
 
@@ -86,17 +87,17 @@ int		ft_put_flag_nbr(long n, inf_flg flags)
 		flags.zero = 0;
 	if (flags.alig == 0)
 	{
-		x += print_width(n, &flags);
-		x += print_prec(n, &flags);
-		x += print_num(n, &flags);
+		x += print_width_hex(n, &flags);
+		x += print_prec_hex(n, &flags);
+		x += ft_puthex(n, mayus, flags);
 	}
 	else
 	{
 		flags.zero = 0;
-		x += print_sign(n);
-		x += print_prec(n, &flags);
-		x += print_num(n, &flags);
-		x += print_width(n, &flags);
+		x += print_sign_hex(n);
+		x += print_prec_hex(n, &flags);
+		x += ft_puthex(n, mayus, flags);
+		x += print_width_hex(n, &flags);
 	}
 	return (x);
 }

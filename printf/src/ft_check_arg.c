@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 03:02:30 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/11 00:43:10 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/22 16:17:02 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,18 @@ int			ft_check_arg(char *s, va_list args, inf_flg flags)
 	if (s[z] == 'c')
 		r += ft_put_flag_char(va_arg(args, int), flags);
 	else if (s[z] == 's')
-		r += ft_putstr(va_arg(args, char*));
+		r += ft_put_flag_str(va_arg(args, char*), flags);
 	else if (s[z] == 'd' || s[z] == 'i')
 		r += ft_put_flag_nbr(va_arg(args, int), flags);
 	else if (s[z] == 'u')
-		r += ft_putnbr_abs(va_arg(args, int), flags);
+		r += ft_putnbr_abs(va_arg(args, unsigned int), flags);
 	else if (s[z] == 'x')
-		r += ft_puthex(va_arg(args, int), 0);
+		r += ft_put_flag_hex(va_arg(args, long), 0, flags);
 	else if (s[z] == 'X')
-		r += ft_puthex(va_arg(args, int), 1);
+		r += ft_put_flag_hex(va_arg(args, long), 32, flags);
 	else if (s[z] == '%')
-		r += ft_putchar('%');
+		r += ft_put_flag_char('%', flags);
 	else if (s[z] == 'p')
-		r += ft_putmem((void *)va_arg(args, unsigned long));
+		r += ft_put_flag_mem((unsigned long)va_arg(args, void *), flags);
 	return (r);
 }
