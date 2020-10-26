@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:14:21 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/26 01:37:34 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/26 19:29:42 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,8 @@ void		read_flag_ast(char *str, va_list args, inf_flg **flags)
 	int x;
 
 	x = 0;
-	if (str[x + 1] == '.')
-	{
-		(*flags)->first = va_arg(args, int);
-		if ((*flags)->first < 0)
-		{
-			(*flags)->alig = 1;
-			(*flags)->first *= -1;
-		}
-	}
-	else if (str[x - 1] == '.')
+	(*flags)->ast = -1;
+	if (str[x - 1] == '.')
 	{
 		(*flags)->second = va_arg(args, int);
 		if ((*flags)->second < 0)
@@ -49,11 +41,11 @@ void		read_flag_ast(char *str, va_list args, inf_flg **flags)
 	}
 	else
 	{
-		(*flags)->ast = va_arg(args, int);
-		if ((*flags)->ast < 0)
+		(*flags)->first = va_arg(args, int);
+		if ((*flags)->first < 0)
 		{
-			(*flags)->ast *= -1;
 			(*flags)->alig = 1;
+			(*flags)->first *= -1;
 		}
 	}
 }
@@ -81,7 +73,7 @@ int			ft_read_flags(char *str, va_list args, inf_flg *flags)
 	int x;
 
 	x = 0;
-	while (ft_strchr("-0.*123456789", str[x]) != NULL)
+	while (ft_strchr("-0.*123456789 ", str[x]) != NULL)
 	{
 		if (str[x] == '0')
 			flags->zero = 1;
@@ -96,6 +88,11 @@ int			ft_read_flags(char *str, va_list args, inf_flg *flags)
 		}
 		else if (str[x] == '.')
 			x += read_flag_dot(str + x, &flags);
+		else if (str[x] == ' ')
+		{
+			ft_putchar(' ');
+			flags->second--;
+		}
 		x++;
 	}
 	return (x);
@@ -107,8 +104,21 @@ inf_pf		ft_info_flags(char *str, va_list args, inf_flg flags, inf_pf print)
 	int		x;
 
 	x = ft_read_flags((char *)str, args, &flags);
-	z = ft_check_arg((char *)str + x, args, flags);
-	print.x += x + 1;
-	print.ret = z;
+	z = ft_check_arg((char *)str + x, args, flags, &print);
+	if (print.none == 1)
+	{
+		if (flags.first > 0)
+		{
+			print.ret = flags.first - 1;
+			print.x += x - 1;
+		}
+		else
+			print.x += x;
+	}
+	else
+	{
+		print.ret = z;
+		print.x += x + 1;
+	}
 	return (print);
 }

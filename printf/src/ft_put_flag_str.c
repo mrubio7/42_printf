@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 13:00:55 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/23 19:19:09 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/26 19:33:04 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ int		ft_put_flag_str(char *s, inf_flg flags)
 	char *new;
 
 	x = 0;
-	if (flags.ast > 0 && flags.first == 0)
-		flags.first = flags.ast;
 	new = flag_prec_str(s, flags);
 	if (flags.alig == 1)
 	{

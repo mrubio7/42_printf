@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 01:22:15 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/24 14:20:11 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/26 19:30:01 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ int		print_num(long n, inf_flg *flags)
 	x = 0;
 	if (n < 0)
 		n *= -1;
+	if (n == 0 && flags->dot == 1 && flags->second == -1 && flags->ast == 1)
+		x += ft_putchar('0');
 	if (n == 0 && flags->second == 0)
 		return (x);
 	x += ft_putnbr(n);
@@ -67,6 +69,8 @@ int		print_prec(long n ,inf_flg *flags)
 
 	i = flags->second;
 	x = 0;
+	if (n == 0 && flags->dot == 1 && flags->second == 0)
+		return (x);
 	while (i > ft_nblen(n))
 	{
 		x += ft_putchar('0');
@@ -80,12 +84,10 @@ int		ft_put_flag_nbr(long n, inf_flg flags)
 	int x;
 
 	x = 0;
-	if (flags.dot == 1 && flags.second == -1)
+	if (flags.dot == 1 && flags.second == -1 && flags.ast != -1)
 		flags.second = 0;
 	if (flags.second > -1)
 		flags.zero = 0;
-	if (flags.ast > 0 && flags.first == 0)
-		flags.first = flags.ast;
 	if (flags.alig == 0)
 	{
 		x += print_width(n, &flags);

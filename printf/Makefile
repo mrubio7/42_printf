@@ -19,6 +19,7 @@ SRC =	ft_printf.c\
 		src/ft_puthex.c\
 		src/ft_put_flag_mem.c\
 		src/ft_putmem.c\
+		main.c
 
 OBJ = $(SRC:.c=.o)
 

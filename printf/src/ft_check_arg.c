@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 03:02:30 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/26 01:19:54 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/26 11:41:05 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ long		ft_abs(long n)
 	return (n);
 }
 
-int			ft_check_arg(char *s, va_list args, inf_flg flags)
+int			ft_check_arg(char *s, va_list args, inf_flg flags, inf_pf *print)
 {
 	int z;
 	int r;
@@ -42,5 +42,7 @@ int			ft_check_arg(char *s, va_list args, inf_flg flags)
 		r += ft_put_flag_char('%', flags);
 	else if (s[z] == 'p')
 		r += ft_put_flag_mem((unsigned long)va_arg(args, void *), flags);
+	else
+		print->none = 1;
 	return (r);
 }

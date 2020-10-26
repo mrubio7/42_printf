@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 14:27:01 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/23 19:03:28 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/26 19:31:35 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,10 @@ int		ft_put_flag_mem(unsigned long addr, inf_flg flags)
 	int x;
 
 	x = 0;
-	if (flags.dot == 1 && flags.second == -1)
+	if (flags.dot == 1 && flags.second == -1 && flags.ast != -1)
 		flags.second = 0;
 	if (flags.second > -1)
 		flags.zero = 0;
-	if (flags.ast > 0 && flags.first == 0)
-		flags.first = flags.ast;
 	if (flags.alig == 0)
 	{
 		x += print_width_mem((unsigned long)addr, &flags);

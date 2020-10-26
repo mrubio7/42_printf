@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 02:43:13 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/26 01:18:21 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/26 11:23:50 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char			*ft_strdup(const char *src);
 int				ft_nblen(long n);
 char			*ft_strchr(char *s, int c);
 
-int				ft_check_arg(char *s, va_list args, inf_flg flags);
+int				ft_check_arg(char *s, va_list args, inf_flg flags, inf_pf *print);
 inf_pf			ft_info_flags(char *str, va_list args, inf_flg flags, inf_pf print);
 long			ft_abs(long n);
 
