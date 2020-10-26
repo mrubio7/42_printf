@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 01:22:15 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/19 00:40:18 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/24 14:20:11 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		print_width(long n, inf_flg *flags)
 	siz = (flags->second > ft_nblen(n)) ? flags->second : ft_nblen(n);
 	i -= siz + (n < 0);
 	if (n < 0 && flags->alig == 0 && flags->zero == 1)
-		ft_putchar('-');
+		x += ft_putchar('-');
 	if (n == 0 && flags->second == 0)
 		i++;
 	if (flags->zero == 1)
@@ -33,7 +33,7 @@ int		print_width(long n, inf_flg *flags)
 		while (i-- > 0)
 			x += ft_putchar(' ');
 	if (n < 0 && flags->alig == 0 && flags->zero == 0)
-		ft_putchar('-');
+		x += ft_putchar('-');
 	return (x);
 }
 
@@ -84,6 +84,8 @@ int		ft_put_flag_nbr(long n, inf_flg flags)
 		flags.second = 0;
 	if (flags.second > -1)
 		flags.zero = 0;
+	if (flags.ast > 0 && flags.first == 0)
+		flags.first = flags.ast;
 	if (flags.alig == 0)
 	{
 		x += print_width(n, &flags);

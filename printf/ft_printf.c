@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 19:43:04 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/22 01:34:41 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/26 01:17:24 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ void	ft_init_struct(inf_pf *print, inf_flg *flags)
 
 int		ft_printf(const char *str, ...)
 {
-	va_list args;
-	inf_pf print;
-	inf_flg flags;
-	int retur;
+	va_list		args;
+	inf_pf		print;
+	inf_flg		flags;
+	int			retur;
 
 	retur = 0;
 	ft_init_struct(&print, &flags);

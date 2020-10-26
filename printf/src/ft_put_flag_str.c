@@ -6,23 +6,23 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 13:00:55 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/16 19:10:07 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/23 19:19:09 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
-
 
 int		flag_width_str(char *s, inf_flg flags)
 {
 	int x;
 
 	x = 0;
-	while (flags.first > (int)ft_strlen(s))
-	{
-		x += ft_putchar(' ');
-		flags.first--;
-	}
+	if (flags.zero == 1 && flags.alig == 0)
+		while (flags.first-- > (int)ft_strlen(s))
+			x += ft_putchar('0');
+	else
+		while (flags.first-- > (int)ft_strlen(s))
+			x += ft_putchar(' ');
 	return (x);
 }
 
@@ -55,6 +55,8 @@ int		ft_put_flag_str(char *s, inf_flg flags)
 	char *new;
 
 	x = 0;
+	if (flags.ast > 0 && flags.first == 0)
+		flags.first = flags.ast;
 	new = flag_prec_str(s, flags);
 	if (flags.alig == 1)
 	{

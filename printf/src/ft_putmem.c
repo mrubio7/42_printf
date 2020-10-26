@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 22:34:50 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/22 02:18:34 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/25 21:07:38 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,13 @@ int		ft_print_mem(long nb)
 
 int		ft_putmem(long addr, inf_flg flags)
 {
-	int i;
-	long bignum;
+	int x;
 
-	i = 0;
-	bignum = 16;
-	i += ft_putstr("0x");
-	if (addr == 0 && flags.second == 0)
-		return (0);
-	while ((bignum * 16) < addr)
-		bignum *= 16;
-	while (addr > 16)
-	{
-		i += ft_print_mem(addr / bignum);
-		addr %= bignum;
-		bignum /= 16;
-	}
-	i += ft_print_mem(addr);
-	return (i);
+	x = 0;
+	if (addr == 0 && flags.dot == 1 && flags.second == 0)
+		return (x);
+	if (addr > 15)
+		x += ft_putmem((addr / 16), flags);
+	x += ft_print_mem(addr % 16);
+	return (x);
 }

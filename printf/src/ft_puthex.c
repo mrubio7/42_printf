@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 00:06:04 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/21 14:33:04 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/26 01:20:10 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,13 @@ int		ft_print_numhex(long nb, int mayus)
 
 int		ft_puthex(long n, int mayus, inf_flg flags)
 {
-	int i;
-	long bignum;
+	int x;
 
-	i = 0;
-	bignum = 16;
-	if (n == 0 && flags.second == 0)
-		return (0);
-	while ((bignum * 16) < n)
-		bignum *= 16;
-	while (n > 16)
-	{
-		i += ft_print_numhex(n / bignum, mayus);
-		n %= bignum;
-		bignum /= 16;
-	}
-	i += ft_print_numhex(n, mayus);
-	return (i);
+	x = 0;
+	if (n == 0 && flags.dot == 1 && flags.second == 0)
+		return (x);
+	if (n > 15)
+		x += ft_puthex((n / 16), mayus, flags);
+	x += ft_print_numhex((n % 16), mayus);
+	return (x);
 }

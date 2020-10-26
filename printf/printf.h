@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 02:43:13 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/22 16:15:53 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/26 01:18:21 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-typedef struct struct_flags
+typedef struct	struct_flags
 {
 	int		first;
 	int		alig;
@@ -31,10 +31,11 @@ typedef struct struct_flags
 	int		dot;
 }inf_flg;
 
-typedef struct struct_printf
+typedef struct	struct_printf
 {
 	int		x;
 	int		ret;
+	int		none;
 }inf_pf;
 
 unsigned int	ft_strlen(const char *str);
@@ -66,6 +67,5 @@ int				ft_putmem(long addr, inf_flg flags);
 
 int				ft_printf(const char *str, ...);
 void			ft_init_struct(inf_pf *print, inf_flg *flags);
-
 
 #endif

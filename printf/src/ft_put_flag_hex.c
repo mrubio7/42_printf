@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 19:46:28 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/22 01:17:20 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/25 20:34:57 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,10 @@ int		ft_put_flag_hex(long n, int mayus, inf_flg flags)
 	int x;
 
 	x = 0;
-	if (flags.dot == 1 && flags.second == -1)
-		flags.second = 0;
 	if (flags.second > -1)
 		flags.zero = 0;
+	if (flags.ast > 0 && flags.first == 0)
+		flags.first = flags.ast;
 	if (flags.alig == 0)
 	{
 		x += print_width_hex(n, &flags);
