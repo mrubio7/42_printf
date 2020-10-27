@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 02:43:13 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/26 11:23:50 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/27 02:12:37 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ int				ft_putstr(char *s);
 
 int				ft_putnbr_abs(long n, inf_flg flags);
 
-int				ft_put_flag_hex(long n, int mayus, inf_flg flags);
-int				ft_puthex(long n, int mayus, inf_flg flags);
+int				ft_put_flag_hex(unsigned long n, int mayus, inf_flg flags);
+int				ft_puthex(unsigned long n, int mayus, inf_flg flags);
 
 int				ft_put_flag_mem(unsigned long addr, inf_flg flags);
 int				ft_putmem(long addr, inf_flg flags);

@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 19:46:28 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/26 19:32:34 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/27 02:12:08 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_hexlen(long n)
 	return (x);
 }
 
-int		print_width_hex(long n, inf_flg *flags)
+int		print_width_hex(unsigned long n, inf_flg *flags)
 {
 	int x;
 	int siz;
@@ -61,7 +61,7 @@ int		print_sign_hex(long n)
 	return (x);
 }
 
-int		print_prec_hex(long n ,inf_flg *flags)
+int		print_prec_hex(unsigned long n ,inf_flg *flags)
 {
 	int x;
 	int i;
@@ -76,7 +76,7 @@ int		print_prec_hex(long n ,inf_flg *flags)
 	return (x);
 }
 
-int		ft_put_flag_hex(long n, int mayus, inf_flg flags)
+int		ft_put_flag_hex(unsigned long n, int mayus, inf_flg flags)
 {
 	int x;
 

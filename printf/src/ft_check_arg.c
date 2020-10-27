@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 03:02:30 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/26 11:41:05 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/27 02:11:44 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int			ft_check_arg(char *s, va_list args, inf_flg flags, inf_pf *print)
 	else if (s[z] == 'u')
 		r += ft_putnbr_abs(va_arg(args, unsigned int), flags);
 	else if (s[z] == 'x')
-		r += ft_put_flag_hex(va_arg(args, long), 0, flags);
+		r += ft_put_flag_hex(va_arg(args, unsigned long), 0, flags);
 	else if (s[z] == 'X')
-		r += ft_put_flag_hex(va_arg(args, long), 32, flags);
+		r += ft_put_flag_hex(va_arg(args, unsigned long), 32, flags);
 	else if (s[z] == '%')
 		r += ft_put_flag_char('%', flags);
 	else if (s[z] == 'p')

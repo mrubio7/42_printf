@@ -6,13 +6,13 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 00:06:04 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/26 01:20:10 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/27 02:12:47 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-int		ft_print_numhex(long nb, int mayus)
+int		ft_print_numhex(unsigned long nb, int mayus)
 {
 	if (nb < 10)
 		return(ft_putnbr(nb));
@@ -31,7 +31,7 @@ int		ft_print_numhex(long nb, int mayus)
 	return (0);
 }
 
-int		ft_puthex(long n, int mayus, inf_flg flags)
+int		ft_puthex(unsigned long n, int mayus, inf_flg flags)
 {
 	int x;
 
