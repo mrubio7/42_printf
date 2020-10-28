@@ -6,13 +6,13 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 19:43:04 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/26 11:24:46 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/28 01:30:18 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void	ft_init_struct(inf_pf *print, inf_flg *flags)
+void	ft_init_struct(t_pf *print, t_flg *flags)
 {
 	print->ret = 0;
 	print->x = 0;
@@ -31,8 +31,8 @@ void	ft_init_struct(inf_pf *print, inf_flg *flags)
 int		ft_printf(const char *str, ...)
 {
 	va_list		args;
-	inf_pf		print;
-	inf_flg		flags;
+	t_pf		print;
+	t_flg		flags;
 	int			retur;
 
 	retur = 0;
@@ -42,7 +42,8 @@ int		ft_printf(const char *str, ...)
 	{
 		if (str[print.x] == '%')
 		{
-			print = ft_info_flags((char *)str + print.x + 1, args, flags, print);
+			print = ft_info_flags((char *)str + print.x + 1, args, flags,
+			print);
 			retur += print.ret;
 		}
 		else

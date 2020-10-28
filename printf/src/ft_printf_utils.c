@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 02:45:47 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/23 19:18:36 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/28 01:36:27 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char			*ft_strdup(const char *src)
 	return (s);
 }
 
-char		*ft_strchr(char *s, int c)
+char			*ft_strchr(char *s, int c)
 {
 	int x;
 
@@ -76,7 +76,7 @@ char		*ft_strchr(char *s, int c)
 	return (NULL);
 }
 
-int			ft_nblen(long n)
+int				ft_nblen(long n)
 {
 	int size;
 

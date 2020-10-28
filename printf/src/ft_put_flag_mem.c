@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 14:27:01 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/26 19:31:35 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/28 01:37:03 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ int		ft_memlen(long n)
 	{
 		x++;
 		n /= 16;
-	}	
+	}
 	x++;
 	return (x);
 }
 
-int		print_width_mem(unsigned long n, inf_flg *flags)
+int		print_width_mem(unsigned long n, t_flg *flags)
 {
 	int x;
 	int siz;
 	int i;
-	
+
 	x = 0;
 	i = flags->first;
 	siz = (flags->second > ft_memlen(n)) ? flags->second : ft_memlen(n);
@@ -49,7 +49,7 @@ int		print_width_mem(unsigned long n, inf_flg *flags)
 	return (x);
 }
 
-int		print_prec_mem(long n ,inf_flg *flags)
+int		print_prec_mem(long n, t_flg *flags)
 {
 	int x;
 	int i;
@@ -64,7 +64,7 @@ int		print_prec_mem(long n ,inf_flg *flags)
 	return (x);
 }
 
-int		ft_put_flag_mem(unsigned long addr, inf_flg flags)
+int		ft_put_flag_mem(unsigned long addr, t_flg flags)
 {
 	int x;
 

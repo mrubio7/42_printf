@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 16:14:21 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/26 19:29:42 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/28 01:32:08 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int			ft_ret_char2int(char *str)
 	return (num);
 }
 
-void		read_flag_ast(char *str, va_list args, inf_flg **flags)
+void		read_flag_ast(char *str, va_list args, t_flg **flags)
 {
 	int x;
 
@@ -50,10 +50,10 @@ void		read_flag_ast(char *str, va_list args, inf_flg **flags)
 	}
 }
 
-int			read_flag_dot(char *str, inf_flg **flags)
+int			read_flag_dot(char *str, t_flg **flags)
 {
 	int x;
-	
+
 	x = 0;
 	(*flags)->dot = 1;
 	if (str[x + 1] >= '0' && str[x + 1] <= '9')
@@ -68,7 +68,7 @@ int			read_flag_dot(char *str, inf_flg **flags)
 	}
 }
 
-int			ft_read_flags(char *str, va_list args, inf_flg *flags)
+int			ft_read_flags(char *str, va_list args, t_flg *flags)
 {
 	int x;
 
@@ -88,17 +88,12 @@ int			ft_read_flags(char *str, va_list args, inf_flg *flags)
 		}
 		else if (str[x] == '.')
 			x += read_flag_dot(str + x, &flags);
-		else if (str[x] == ' ')
-		{
-			ft_putchar(' ');
-			flags->second--;
-		}
 		x++;
 	}
 	return (x);
 }
 
-inf_pf		ft_info_flags(char *str, va_list args, inf_flg flags, inf_pf print)
+t_pf		ft_info_flags(char *str, va_list args, t_flg flags, t_pf print)
 {
 	int		z;
 	int		x;

@@ -6,18 +6,18 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 01:22:15 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/26 19:30:01 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/28 01:33:41 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-int		print_width(long n, inf_flg *flags)
+int		print_width(long n, t_flg *flags)
 {
 	int x;
 	int siz;
 	int i;
-	
+
 	x = 0;
 	i = flags->first;
 	siz = (flags->second > ft_nblen(n)) ? flags->second : ft_nblen(n);
@@ -40,14 +40,14 @@ int		print_width(long n, inf_flg *flags)
 int		print_sign(long n)
 {
 	int x;
-	
+
 	x = 0;
 	if (n < 0)
 		x += ft_putchar('-');
 	return (x);
 }
 
-int		print_num(long n, inf_flg *flags)
+int		print_num(long n, t_flg *flags)
 {
 	int x;
 
@@ -62,7 +62,7 @@ int		print_num(long n, inf_flg *flags)
 	return (x);
 }
 
-int		print_prec(long n ,inf_flg *flags)
+int		print_prec(long n, t_flg *flags)
 {
 	int x;
 	int i;
@@ -79,7 +79,7 @@ int		print_prec(long n ,inf_flg *flags)
 	return (x);
 }
 
-int		ft_put_flag_nbr(long n, inf_flg flags)
+int		ft_put_flag_nbr(long n, t_flg flags)
 {
 	int x;
 

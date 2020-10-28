@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 19:46:28 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/28 00:31:31 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/28 01:37:16 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@ int		ft_hexlen(unsigned int n)
 	{
 		x++;
 		n /= 16;
-	}	
+	}
 	x++;
 	return (x);
 }
 
-int		print_width_hex(unsigned int n, inf_flg *flags)
+int		print_width_hex(unsigned int n, t_flg *flags)
 {
 	int x;
 	int siz;
 	int i;
-	
+
 	x = 0;
 	i = flags->first;
 	siz = (flags->second > ft_hexlen(n)) ? flags->second : ft_hexlen(n);
@@ -52,14 +52,14 @@ int		print_width_hex(unsigned int n, inf_flg *flags)
 int		print_sign_hex(unsigned int n)
 {
 	int x;
-	
+
 	x = 0;
 	if (n < 0)
 		x += ft_putchar('-');
 	return (x);
 }
 
-int		print_prec_hex(unsigned int n ,inf_flg *flags)
+int		print_prec_hex(unsigned int n, t_flg *flags)
 {
 	int x;
 	int i;
@@ -74,7 +74,7 @@ int		print_prec_hex(unsigned int n ,inf_flg *flags)
 	return (x);
 }
 
-int		ft_put_flag_hex(unsigned int n, int mayus, inf_flg flags)
+int		ft_put_flag_hex(unsigned int n, int mayus, t_flg flags)
 {
 	int x;
 

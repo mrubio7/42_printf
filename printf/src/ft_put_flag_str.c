@@ -6,15 +6,15 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 13:00:55 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/27 00:36:05 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/28 01:37:41 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-int		flag_width_str(char *s, inf_flg flags)
+int		flag_width_str(char *s, t_flg flags)
 {
-	int x;
+	int		x;
 
 	x = 0;
 	if (flags.zero == 1 && flags.alig == 0)
@@ -26,15 +26,15 @@ int		flag_width_str(char *s, inf_flg flags)
 	return (x);
 }
 
-char	*flag_prec_str(char *str, inf_flg flags)
+char	*flag_prec_str(char *str, t_flg flags)
 {
-	int x;
-	char *new;
+	int		x;
+	char	*new;
 
 	x = 0;
 	if (!str)
 		str = "(null)";
-	new = malloc(ft_strlen(str));           //MALLOOCCCC QUE TIENES QUE HACER FREEEEEE!!!!!
+	new = malloc(ft_strlen(str));
 	if (flags.second == -1)
 		new = str;
 	else
@@ -49,10 +49,10 @@ char	*flag_prec_str(char *str, inf_flg flags)
 	return (new);
 }
 
-int		ft_put_flag_str(char *s, inf_flg flags)
+int		ft_put_flag_str(char *s, t_flg flags)
 {
-	int x;
-	char *new;
+	int		x;
+	char	*new;
 
 	x = 0;
 	new = flag_prec_str(s, flags);
