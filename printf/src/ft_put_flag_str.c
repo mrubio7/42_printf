@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 13:00:55 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/28 01:37:41 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/28 17:16:17 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ char	*flag_prec_str(char *str, t_flg flags)
 	x = 0;
 	if (!str)
 		str = "(null)";
-	new = malloc(ft_strlen(str));
+	if ((new = malloc(ft_strlen(str))) == NULL)
+		return (0);
 	if (flags.second == -1)
-		new = str;
+		ft_memcpy(new, str, ft_strlen(str));
 	else
 	{
 		while (x < flags.second)
@@ -66,5 +67,6 @@ int		ft_put_flag_str(char *s, t_flg flags)
 		x += flag_width_str(new, flags);
 		x += ft_putstr(new);
 	}
+	free(new);
 	return (x);
 }
