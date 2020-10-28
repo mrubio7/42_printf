@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 02:43:13 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/28 01:28:35 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/28 18:01:59 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct	s_printf
 
 unsigned int	ft_strlen(const char *str);
 void			*ft_memcpy(void *dest, const void *src, unsigned int n);
-char			*ft_strdup(const char *src);
+void			ft_bzero(void *s, unsigned int n);
 int				ft_nblen(long n);
 char			*ft_strchr(char *s, int c);
 

@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 02:45:47 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/28 01:36:27 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/28 18:01:00 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,17 @@ void			*ft_memcpy(void *dest, const void *src, unsigned int n)
 	return (dest);
 }
 
-char			*ft_strdup(const char *src)
+void			ft_bzero(void *s, unsigned int n)
 {
-	char	*s;
-	int		x;
+	char *f;
 
-	x = ft_strlen(src) + 1;
-	if ((s = malloc(x)) == NULL)
-		return (NULL);
-	if (src == NULL)
+	f = s;
+	while (n)
 	{
-		free(s);
-		return (NULL);
+		*f = 0;
+		f++;
+		n--;
 	}
-	ft_memcpy(s, src, x);
-	return (s);
 }
 
 char			*ft_strchr(char *s, int c)
