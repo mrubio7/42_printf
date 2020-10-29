@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/25 20:43:52 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/28 17:58:55 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/29 18:32:58 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int		main(void)
 {
 	int res;
 
-	res = printf("this %s is %s", "hello", "");
+	res = printf("|%*.*s|", 7, 5, "HOLAQUETAL");
 	printf("\n%d\n", res);
-	res = ft_printf("this %s is %s", "hello", "");
+	res = ft_printf("|%*.*s|", 7, 5, "HOLAQUETAL");
 	ft_printf("\n%d\n", res);
 }

@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 13:00:55 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/28 18:01:30 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/10/29 18:37:15 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,58 +15,59 @@
 int		flag_width_str(char *s, t_flg flags)
 {
 	int		x;
+	int		siz;
 
 	x = 0;
-	if (flags.zero == 1 && flags.alig == 0)
-		while (flags.first-- > (int)ft_strlen(s))
+	siz = ft_strlen(s);
+	if (flags.second < siz && flags.second > -1)
+		siz = flags.second;
+	if (flags.zero == 1 && flags.alig == 0 && flags.first > 0)
+		while (flags.first > siz)
+		{
 			x += ft_putchar('0');
-	else
-		while (flags.first-- > (int)ft_strlen(s))
+			flags.first--;
+		}
+	else if (flags.first > 0)
+		while (flags.first > siz)
+		{
 			x += ft_putchar(' ');
+			flags.first--;
+		}
 	return (x);
 }
 
-char	*flag_prec_str(char *str, t_flg flags)
+int		ft_flag_prec_str(char *str, t_flg flags)
 {
 	int		x;
-	char	*new;
-
+	
 	x = 0;
-	if (!str)
-		str = "(null)";
-	new = malloc(ft_strlen(str));
-	if (flags.second == -1)
-		ft_memcpy(new, str, ft_strlen(str));
-	else
-	{
-		while (x < flags.second && str[x] != '\0')
-		{
-			new[x] = str[x];
-			x++;
-		}
-		new[x] = '\0';
-	}
-	return (new);
+	while (x < flags.second && str[x] != '\0')
+		x += ft_putchar(str[x]);
+	return (x);
 }
 
 int		ft_put_flag_str(char *s, t_flg flags)
 {
 	int		x;
-	char	*new;
 
 	x = 0;
-	new = flag_prec_str(s, flags);
+	if (!s)
+		s = "(null)";
 	if (flags.alig == 1)
 	{
-		x += ft_putstr(new);
-		x += flag_width_str(new, flags);
+		if (flags.second > -1)
+			x += ft_flag_prec_str(s, flags);
+		else
+			x += ft_putstr(s);
+		x += flag_width_str(s, flags);
 	}
 	else
 	{
-		x += flag_width_str(new, flags);
-		x += ft_putstr(new);
+		x += flag_width_str(s, flags);
+		if (flags.second > -1)
+			x += ft_flag_prec_str(s, flags);
+		else
+			x += ft_putstr(s);
 	}
-	ft_bzero(new, ft_strlen(new));
-	free(new);
 	return (x);
 }
