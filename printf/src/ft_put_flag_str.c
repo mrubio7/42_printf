@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 13:00:55 by mrubio            #+#    #+#             */
-/*   Updated: 2020/10/29 18:37:15 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/11/02 13:22:23 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		flag_width_str(char *s, t_flg flags)
 int		ft_flag_prec_str(char *str, t_flg flags)
 {
 	int		x;
-	
+
 	x = 0;
 	while (x < flags.second && str[x] != '\0')
 		x += ft_putchar(str[x]);
