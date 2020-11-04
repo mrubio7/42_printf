@@ -1,6 +1,6 @@
 42Madrid Cursus - ft_printf
 
-![printf](./110:100.png)
+![printf](./100:100.png)
 
 ## Objetivo
 
