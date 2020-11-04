@@ -1,5 +1,7 @@
 42Madrid Cursus - ft_printf
 
+![printf](./110:100.png)
+
 ## Objetivo
 
 Volver a programar una parte de printf.
