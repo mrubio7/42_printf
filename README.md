@@ -1,30 +1,20 @@
-42Madrid Cursus - ft_printf
+[![jaeskim's 42Project Score](https://badge42.herokuapp.com/api/project/mrubio/ft_printf)](https://github.com/JaeSeoKim/badge42)
 
-![printf](./100:100.png)
+## Objetive
 
-## Objetivo
+program a small printf function: <br/>
+<br/>
+Conversion: `%c` `%d` `%i` `%s` `%%` `%p` `%u` `%x` `%X` <br/>
+flags: `-` `0` `.` `*`<br/>
 
-Volver a programar una parte de printf.
+## Use
 
-`%c` -> ✅<br/>
-`%d` -> ✅<br/>
-`%i` -> ✅<br/>
-`%s` -> ✅<br/>
-`%%` -> ✅<br/>
-`%p` -> ✅<br/>
-`%u` -> ✅<br/>
-`%x` -> ✅<br/>
-`%X` -> ✅<br/>
+The program uses a Makefile, you should compile with `make` command and thats creates a `libftprintf.a`.
 
-*flags*<br/>
-`-` -> ✅<br/>
-`0` -> ✅<br/>
-`.` -> ✅<br/>
-`*` -> ✅<br/>
+Must compile your program with my `libftprintf.a` to use the function.
 
-## Uso
+# Some make commands
 
-El programa usa un Makefile, por lo que con el comando `make` directamente creara un archivo `libftprintf.a` que deberas compilar y ejecutar.
-
-Una vez creado, si quieres eliminar los archivos "*.o" bastará con usar `make clean`
-o si también quieres borrar "libftprintf.a" `make fclean`.
+`make clean` to clean `*.o`.<br/>
+`make fclean` to clean all.<br/>
+`make re` compile all again.<br/>
